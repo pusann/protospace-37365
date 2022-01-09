@@ -1,5 +1,5 @@
 class PrototypesController < ApplicationController
-  before_action :authenticate_user!, only: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def  index #トップページ
     @prototypes = Prototype.all
@@ -44,9 +44,12 @@ class PrototypesController < ApplicationController
   def  destroy
     prototype = Prototype.find(params[:id])
     prototype.destroy
+  end
+
+   def  move_to_index
+     unless  current_user.id == proto.user_id 
+      redirect_to action: :index
+      end
     end
 
-    unless user_signed_in?
-      redirect_to action: :edit
-    end
 end  
