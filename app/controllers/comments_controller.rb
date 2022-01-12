@@ -18,10 +18,3 @@ class CommentsController < ApplicationController
   end
 end
 
-# 勉強がんばろう！
-
-# 　こんにちは
-# 　ありがとう
-# 　こんばんわ
-
-# 勉強がんばろう　に紐づく　コメントたち

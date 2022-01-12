@@ -24,18 +24,18 @@ class PrototypesController < ApplicationController
     redirect_to root_path
   end
 
-    def  edit
-      @prototype = Prototype.find(params[ :id])
-    end
+  def  edit
+    @prototype = Prototype.find(params[ :id])
+  end
 
-    def updete
-      @prototype = Prototype.new(prototype_params)
-      if @prototype.updete
-        redirect_to  root_path
-      else
-        render :new
-      end
-    end  
+  def update
+    @prototype = Prototype.new(prototype_params)
+    if @prototype.update(prototype_params)
+      redirect_to  root_path
+    else
+      render :new
+    end
+  end  
 
   def  show
     @prototype = Prototype.find(params[ :id])
